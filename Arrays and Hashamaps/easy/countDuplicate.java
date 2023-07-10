@@ -44,4 +44,23 @@ public class Main
 	    }
 	    return count;
 	}
+
+    public static int countDupilicatedArray(String word) {
+        char[] chars = new char[351];
+        int count = 0;
+        
+        for(int i = 0;  i < 350; i++) {
+            chars[i] = 0;
+        }
+        
+        for(char c : word.toLowerCase().toCharArray()) {
+            if(chars[c] == 1) {
+                count++;
+            }
+            chars[c]++;
+        }
+        return count;
+    }
+
+
 }
