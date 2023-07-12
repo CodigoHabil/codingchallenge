@@ -5,6 +5,12 @@ public class Main
 		System.out.println(compression("Helloworld"));
 		System.out.println(compression("Heeeelllllllloworrrldthissssiss"));
 		System.out.println(compression("H"));
+		
+		System.out.println(compressionOpt("aabcccccaaa"));
+		System.out.println(compressionOpt("Helloworld"));
+		System.out.println(compressionOpt("Heeeelllllllloworrrldthissssiss"));
+		System.out.println(compressionOpt("H"));
+		
 	}
 	
 	public static String compression(String word) {
@@ -27,4 +33,20 @@ public class Main
 	    	           
 	    return (newString.length() > word.length()) ? word : newString.toString()	;    
 	}
+	
+	public static String compressionOpt(String word) {
+	    int count = 0;
+	    StringBuilder compressionString = new StringBuilder("");
+	    for(int i = 0; i< word.length(); i++) {
+	        count++;
+	        if( i + 1 == word.length() || word.charAt(i) != word.charAt(i+1)) {
+	            compressionString.append(word.charAt(i));
+	            compressionString.append(count);
+	            count = 0;
+	        }
+	    }
+	    
+	    return word.length() <= compressionString.length() ? word : compressionString.toString();
+	}
 }
+
