@@ -13,7 +13,9 @@ public class Main {
         System.out.println(" ");
         System.out.println("✅ " ) ;
         
-        String [][] aux = rotate90(numbers);
+        Matrix matrix = new Matrix();
+        
+        Object [][] aux = matrix.rotate90(numbers);
         
         for(int i = 0; i <= 3; i++) {
             for(int j = 0; j <= 3; j++) {
@@ -21,12 +23,28 @@ public class Main {
             }
             System.out.println("");
         }
+        
+        System.out.println("✅ " ) ;
+        
+        Double[][] numbersFloat = {{1.2,3.4,5.6},{7.8, 9.1, 1.2},{1.4, 1.5, 1.6}};
+        
+        Object [][] aux2 = matrix.rotate90(numbersFloat);
+        
+        for(int i = 0; i < numbersFloat.length; i++) {
+            for(int j = 0; j < numbersFloat[0].length; j++) {
+                System.out.print(aux2[i][j] + " ");
+            }
+            System.out.println("");
+        }
 		 
 		
 	}
-	
-	public static String[][] rotate90 (String[][] matrix) {
-	    String[][] aux = new String[matrix.length][matrix[0].length];
+
+}
+
+class Matrix <T> {
+    public T[][] rotate90 (T[][] matrix) {
+	    Object[][] aux = new Object[matrix.length][matrix[0].length];
 	    int m = -1;
 	    int n = 0;
 		for(int i = 0; i < matrix[0].length; i++) {
@@ -36,6 +54,6 @@ public class Main {
 		    }
 		    n = 0;
 		}
-		return aux;
+		return (T[][]) aux;
 	}
 }
